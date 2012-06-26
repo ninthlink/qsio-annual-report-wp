@@ -1,0 +1,25 @@
+name: wordpress
+instances: 1
+framework: php
+mem: 128M
+min_version:
+  server: 1.0
+services:
+  mysql-wp: mysql
+  fs-wp: filesystem
+hooks:
+  pre-staging:
+    # Add a bit of salt (secure)
+    - echo "<?php" > wp-salt.php
+    - curl https://api.wordpress.org/secret-key/1.1/salt/ >> wp-salt.php
+ 
+  post-staging:
+    # create wp-content in the shared filesystem and migrate 
+    - mkdir -p "$STACKATO_FILESYSTEM"/wp-content
+    - mv wp-content/* "$STACKATO_FILESYSTEM"/wp-content
+    
+    # remove unused directories
+    - rm -rf wp-content
+  
+    # link to wp-content folder in the shared filesystem
+    - ln -s "$STACKATO_FILESYSTEM"/wp-content wp-content
