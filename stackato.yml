@@ -6,12 +6,13 @@ min_version:
   server: 1.0
 services:
   mysql-wp: mysql
-  fs-wp: filesystem
+  filesystem-wp: filesystem
 hooks:
   pre-staging:
     # Add a bit of salt (secure)
     - echo "<?php" > wp-salt.php
-    - curl https://api.wordpress.org/secret-key/1.1/salt/ >> wp-salt.php
+    - curl -s https://api.wordpress.org/secret-key/1.1/salt/ >> wp-salt.php
+    - echo "?>" >> wp-salt.php
  
   post-staging:
     # create wp-content in the shared filesystem and migrate 
