@@ -16,7 +16,7 @@ hooks:
   post-staging:
     # create wp-content in the shared filesystem and migrate 
     - mkdir -p "$STACKATO_FILESYSTEM"/wp-content
-    - mv wp-content/* "$STACKATO_FILESYSTEM"/wp-content
+    - cp -r wp-content/* "$STACKATO_FILESYSTEM"/wp-content
     
     # remove unused directories
     - rm -rf wp-content
