@@ -7,3 +7,9 @@ WordPress is a free and open source blogging tool and a dynamic content manageme
     $ git clone git://github.com/Stackato-Apps/wordpress.git
     $ cd wordpress
     $ stackato push -n
+    
+## Outgoing Email Support
+
+An external accessible email server is required for full functionality 
+of this application. Please see [SMPT](http://wordpress.org/extend/plugins/smtp/) 
+Wordpress Plugin for more details on configuration.
