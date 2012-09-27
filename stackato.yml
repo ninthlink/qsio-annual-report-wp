@@ -9,19 +9,6 @@ services:
   ${name}-db: mysql
   ${name}-fs: filesystem
 hooks:
-  pre-staging:
-    # Add a bit of salt (secure)
-    - echo "<?php" > wp-salt.php
-    - curl -s https://api.wordpress.org/secret-key/1.1/salt/ >> wp-salt.php
-    - echo "?>" >> wp-salt.php
- 
   post-staging:
-    # create wp-content in the shared filesystem and migrate 
-    - mkdir -p "$STACKATO_FILESYSTEM"/wp-content
-    - cp -r wp-content/* "$STACKATO_FILESYSTEM"/wp-content
-    
-    # remove unused directories
-    - rm -rf wp-content
-  
-    # link to wp-content folder in the shared filesystem
-    - ln -s "$STACKATO_FILESYSTEM"/wp-content wp-content
+    # setting up in filesystem
+    - sh stackato-setup.sh
