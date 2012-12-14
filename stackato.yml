@@ -12,3 +12,5 @@ hooks:
   post-staging:
     # setting up in filesystem
     - sh stackato-setup.sh
+    # New Relic setup
+    - mv newrelic/newrelic.ini $STACKATO_APP_ROOT/apache/php/newrelic.ini

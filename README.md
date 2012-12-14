@@ -7,6 +7,10 @@ WordPress is a free and open source blogging tool and a dynamic content manageme
     $ git clone git://github.com/Stackato-Apps/wordpress.git
     $ cd wordpress
     $ stackato push -n
+
+## Using New Relic
+
+Before you deploy your application, modify ./newrelic/newrelic.ini and insert your New Relic license key.
     
 ## Outgoing Email Support
 
