@@ -1,6 +1,7 @@
 name: wordpress
+framework:
+  type: php
 instances: 1
-framework: php
 mem: 256M
 min_version:
   client: 1.4.3
