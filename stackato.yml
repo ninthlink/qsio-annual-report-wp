@@ -7,4 +7,4 @@ services:
   ${name}-db: mysql
 hooks:
   post-staging:
-    - sh stackato-setup.sh
+  - sh stackato-setup.sh
