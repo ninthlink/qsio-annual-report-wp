@@ -3680,12 +3680,17 @@ function validate_file( $file, $allowed_files = '' ) {
  * @return bool True if SSL, false if not used.
  */
 function is_ssl() {
+	$vcap_app = json_decode(getenv('VCAP_APPLICATION'), true);
+	$sso_enabled = $vcap_app['sso_enabled'];
+
 	if ( isset($_SERVER['HTTPS']) ) {
 		if ( 'on' == strtolower($_SERVER['HTTPS']) )
 			return true;
 		if ( '1' == $_SERVER['HTTPS'] )
 			return true;
 	} elseif ( isset($_SERVER['SERVER_PORT']) && ( '443' == $_SERVER['SERVER_PORT'] ) ) {
+		return true;
+	} elseif ( true == $sso_enabled ) {
 		return true;
 	}
 	return false;
