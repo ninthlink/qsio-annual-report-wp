@@ -5,6 +5,8 @@ instances: 1
 mem: 256M
 services:
   ${name}-db: mysql
+  ${name}-fs: filesystem
 hooks:
   post-staging:
+  # setting up in filesystem
   - sh stackato-setup.sh
