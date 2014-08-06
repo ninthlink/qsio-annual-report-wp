@@ -1,0 +1,16 @@
+applications:
+- name: wordpress
+  framework:
+    name: php
+  instances: 1
+  mem: 256M
+  services:
+    ${name}-db:
+      type: mysql
+    ${name}-fs:
+      type: filesystem
+  stackato:
+    hooks:
+      post-staging:
+      # setting up in filesystem
+      - sh stackato-setup.sh
