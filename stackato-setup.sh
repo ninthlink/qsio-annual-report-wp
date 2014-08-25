@@ -21,16 +21,16 @@ else
 fi
 
 echo "Migrating data to shared filesystem..."
-cp -r wp-content/* $FS/wp-content
+cp -r www/wp-content/* $FS/wp-content
 
 echo "Symlink to files in shared filesystem..."
-rm -f .htaccess wp-salt.php
-ln -s $FS/.htaccess .htaccess
-ln -s $FS/wp-salt.php wp-salt.php
+rm -f www/.htaccess www/wp-salt.php
+ln -s $FS/.htaccess www/.htaccess
+ln -s $FS/wp-salt.php www/wp-salt.php
 
 echo "Symlink to folders in shared filesystem..."
-rm -fr wp-content
-ln -s $FS/wp-content wp-content
+rm -fr www/wp-content
+ln -s $FS/wp-content www/wp-content
 
 echo "All Done!"
 

@@ -1,7 +1,6 @@
 applications:
 - name: wordpress
-  framework:
-    name: php
+  buildpack: https://github.com/ActiveState/heroku-buildpack-php.git
   instances: 1
   mem: 256M
   services:
@@ -13,4 +12,4 @@ applications:
     hooks:
       post-staging:
       # setting up in filesystem
-      - sh stackato-setup.sh
+      - sh www/stackato-setup.sh
