@@ -1,4 +1,6 @@
 <?php
+define('FS_METHOD', 'direct');
+
 $url_parts = parse_url($_SERVER['DATABASE_URL']);
 $db_name = substr( $url_parts{'path'}, 1 );
 
