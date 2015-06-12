@@ -1,10 +1,10 @@
 applications:
-- name: wordpress
+- name: dev-qsio-wp-alex
   instances: 1
   mem: 256M
   services:
     ${name}-db:
-      type: mysql
+      type: mysqlha
     ${name}-fs:
       type: filesystem
   stackato:
