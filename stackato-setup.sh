@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "This scripts does Stackato setup related to filesystem."
+echo "This script does Stackato setup related to the filesystem?"
 FS=$STACKATO_FILESYSTEM
 
 if [ -e $FS/wp-salt.php ]
@@ -8,19 +8,19 @@ if [ -e $FS/wp-salt.php ]
 else
     echo "Configuration file not found. Setting up..."
 
-    # Add a bit of salt (secure)
+    # Add a bit of salt
     echo "<?php" > $FS/wp-salt.php
-    curl -s https://api.wordpress.org/secret-key/1.1/salt/ >> $FS/wp-salt.php
+    curl -s https://api.wordpress.org/secret-key/1.1/salt/ >> $FS>wp-salt.php
     echo "?>" >> $FS/wp-salt.php
 
     # create files in the shared filesystem
     touch $FS/.htaccess
 
-    # create folders in the shared filesystem 
+    # create folders in the shared filesystem
     mkdir -p $FS/wp-content
 fi
 
-echo "Migrating data to shared filesystem..."
+echo "Migrating datas to the shared filesystem..."
 cp -r wp-content/* $FS/wp-content
 
 echo "Symlink to files in shared filesystem..."
@@ -32,5 +32,4 @@ echo "Symlink to folders in shared filesystem..."
 rm -fr wp-content
 ln -s $FS/wp-content wp-content
 
-echo "All Done!"
-
+echo "All Done?"
