@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "This script does Stackato setup related to the filesystem?"
+#echo "This script does Stackato setup related to the filesystem?"
 FS=$STACKATO_FILESYSTEM
 
 if [ -e $FS/wp-salt.php ]
