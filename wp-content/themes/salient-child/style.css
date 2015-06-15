@@ -1,0 +1,159 @@
+/*
+Theme Name: Salient Child Theme
+Theme URI: http: //mysite.com/
+Description: This is a custom child theme for Salient
+Author: My Name
+Author URI: http: //mysite.com/
+Template: salient
+Version: 0.1
+*/
+
+/*@import url("../salient/style.css");
+@import url("./font/stylesheet.css");*/
+
+/* Spec fonts as per Qualcomm Brand Standards (In three parts to override style from salient parent)
+** First, make base stuff Arial or sans-serif */
+body,
+body .ui-widget,
+dt,
+a.pp_close,
+.nectar-social .nectar-love .nectar-love-count {
+	font-family: Arial, sans-serif;
+}
+/* Second, headlines and such should be Qualcomm font */
+h1,h2,h3,h4,h5,h6,
+body #error-404 h1,
+body #error-404 h2,
+.nectar-button,
+.carousel-heading h2,
+#page-header-bg h1 {
+	font-family: Qualcomm-Bold;
+}
+body h1.light, body h2.light, body h3.light, body h4.light, body h5.light, body h6.light, p.light,
+.row .col.section-title span,
+.row .col.section-title p,
+body .vc_text_separator div,
+.swiper-slide .content h2,
+.swiper-slide .content p,
+.swiper-slide .button a,
+body .carousel-wrap[data-full-width="true"] .carousel-heading h2,
+#page-header-bg .subheader,
+.nectar-milestone .number{
+	font-family: Qualcomm-Light;
+}
+header#top #logo,
+.row .col.section-title h1, .row .col.section-title h2,
+.nectar-milestone .subject{
+	font-family: Qualcomm-Regular;
+}
+/* Third, fix elements that should inherit their font-family */
+.bold, strong, b,
+.uppercase,
+blockquote{
+	font-family: inherit;
+}
+h1,h2{font-size:67.77px;}
+h3,h4{font-size:41.88px;}
+h5,h6{font-size:25.88px;}
+	.mobile h1, .mobile h2{font-size:3.236em;}
+	.mobile h3, .mobile h4{font-size:1.618em;}
+	.mobile h5, .mobile h6{font-size:1em;}
+h2,h4,h6{font-family:Qualcomm-Regular;}
+h1,h2,h3,h4,h5,h6{ color:#222; line-height: 1;}
+body{
+	font-size: 16px;
+	font-size: 1rem;
+	line-height:1.2;
+	color:#222; /* mimic qualcomm.com even though brand guidelines specify black */
+}
+p{margin:1em 0; padding: 0;}
+
+.admin-bar #header-outer, .logged-in.buddypress #header-outer { top: auto; }
+#header-space, #search-outer { display: none!important; }
+
+#header-outer {
+	position: relative!important;	
+}
+.col, body .vc_row-fluid .wpb_column {
+	margin-bottom: 25px;	
+}
+/* headlines with icon */
+.iwt-text h1, .iwt-text h2{ font-size:41.88px; }
+.iwt-text h3, .iwt-text h4{ font-size:25.88px; }
+.iwt-text h5, .iwt-text h6{ font-size:16px; }
+	.mobile .iwt-text h1, .mobile .iwt-text h2{font-size:1.618rem;}
+	.mobile .iwt-text h3, .mobile .iwt-text h4{font-size:1.3rem;}
+	.mobile .iwt-text h5, .mobile .iwt-text h6{font-size:1.1rem;}
+
+
+/* Navigation Dots */
+.page #top nav{ display: none !important; }
+.home #top nav{ display: block !important; }
+#top nav{
+	position:fixed;
+	right:20px;
+	top:50%;
+	transform:translateY(-50%);
+}
+#top nav ul.sf-menu > li {
+    float:none;
+    position:relative;
+}
+#top nav ul.sf-menu > li a{
+	transition: border-width .34s, background-color .34s;
+	display:block;
+	width: 21px; height: 21px;
+	margin: 8px;
+	padding: 0 !important; /* has to override style attribute */
+    background-color:#70cfee;
+    background-clip: content-box;
+	border-radius:100%;
+	border: 1px solid white;
+	box-shadow: 0 0 5px white;
+}
+#top nav ul.sf-menu > li a:hover{
+	border-width:2px;
+}
+#top nav ul.sf-menu > li.current-menu-item a{
+	border-width:3px;
+	background-color: #222;
+}
+#top nav ul.sf-menu > li a + span{
+	opacity:0;
+	transition: opacity .34s;
+	position:absolute;
+	right:34px; top:50%;
+	transform: translateY(-50%);
+	background:#70cfee;
+	color:#000;
+	padding:5px 8px;
+	white-space:nowrap;
+	border-radius:3px;
+}
+#top nav ul.sf-menu > li a:hover + span{
+    opacity:1;
+}
+/* wpexpander links [wpex] */
+.wpexlinkmore,.wpexlinkless{
+	position: relative;
+	z-index: 99;
+}
+p .wpexlinkmore:after{
+  font-family:FontAwesome;
+  content:"\f0fe";
+  display:inline-block;
+  speak: none;
+}
+p .wpexlinkless:after{
+  font-family:FontAwesome;
+  content:"\00A0\00A0\f146";
+  display:inline-block;
+  speak: none;
+}
+
+/* footer widgets */
+#footer-widgets{
+	display:none !important;
+}
+
+
