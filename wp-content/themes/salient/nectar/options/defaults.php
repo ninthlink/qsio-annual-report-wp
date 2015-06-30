@@ -20,6 +20,7 @@ if(!class_exists('Redux_Options') ){
     $redux_wp_content_dir       = trailingslashit( reduxCleanFilePath( WP_CONTENT_DIR ) );
     $redux_wp_content_dir       = trailingslashit( str_replace( '//', '/', $redux_wp_content_dir ) );
     $redux_relative_url         = str_replace( $redux_wp_content_dir, '', $redux_dir );
+    $redux_relative_url         = str_replace( '/app/fs/qsiodev-fs/wp-content/', '', $redux_relative_url ); // qsio hax
     $redux_wp_content_url = trailingslashit(reduxCleanFilePath( ( is_ssl() ? str_replace( 'http://', 'https://', WP_CONTENT_URL ) : WP_CONTENT_URL ) ) );
     $redux_url           = $redux_wp_content_url . $redux_relative_url;
 
