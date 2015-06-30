@@ -695,7 +695,7 @@ require_once('nectar/tgm-plugin-activation/required_plugins.php');
 #-----------------------------------------------------------------#
 # Nectar VC
 #-----------------------------------------------------------------#
-
+/*
 $nectar_disable_vc = (isset($options['disable-vc'])) ? $options['disable-vc'] : '0';
 
 if( $nectar_disable_vc != '1'){
@@ -739,7 +739,7 @@ if( $nectar_disable_vc != '1'){
 	}
 
 }
-
+*/
 
 #-----------------------------------------------------------------#
 # Theme Skin
@@ -814,25 +814,25 @@ if(!empty($options['ajax-page-loading']) && $options['ajax-page-loading'] == '1'
 #-----------------------------------------------------------------#
 if(function_exists('register_sidebar')) {
 	
-	register_sidebar(array('name' => 'Blog Sidebar', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
-	register_sidebar(array('name' => 'Page Sidebar', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
-	register_sidebar(array('name' => 'WooCommerce Sidebar', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
+	register_sidebar(array('id'=>'blog-sidebar', 'name' => 'Blog Sidebar', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
+	register_sidebar(array('id'=>'page-sidebar', 'name' => 'Page Sidebar', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
+	register_sidebar(array('id'=>'woo-sidebar', 'name' => 'WooCommerce Sidebar', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
 	
-	register_sidebar(array('name' => 'Footer Area 1', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
-	register_sidebar(array('name' => 'Footer Area 2', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
+	register_sidebar(array('id'=>'footer-1', 'name' => 'Footer Area 1', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
+	register_sidebar(array('id'=>'footer-2', 'name' => 'Footer Area 2', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
 	
 	global $options; 
 	$footerColumns = (!empty($options['footer_columns'])) ? $options['footer_columns'] : '4';
 	if($footerColumns == '3' || $footerColumns == '4'){
-		register_sidebar(array('name' => 'Footer Area 3', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
+		register_sidebar(array('id'=>'footer-3', 'name' => 'Footer Area 3', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
 	}
 	if($footerColumns == '4'){
-		register_sidebar(array('name' => 'Footer Area 4', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
+		register_sidebar(array('id'=>'footer-4', 'name' => 'Footer Area 4', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
 	}
 
 	$sideWidgetArea = (!empty($options['header-slide-out-widget-area'])) ? $options['header-slide-out-widget-area'] : 'off';
 	if($sideWidgetArea == '1') {
-		register_sidebar(array('name' => 'Slide Out Widget Area', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
+		register_sidebar(array('id'=>'slide-1', 'name' => 'Slide Out Widget Area', 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget'  => '</div>', 'before_title'  => '<h4>', 'after_title'   => '</h4>'));
 	}
 
 }
