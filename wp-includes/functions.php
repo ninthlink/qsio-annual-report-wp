@@ -3681,7 +3681,7 @@ function validate_file( $file, $allowed_files = '' ) {
  */
 function is_ssl() {
 	$vcap_app = json_decode(getenv('VCAP_APPLICATION'), true);
-	$sso_enabled = $vcap_app['sso_enabled'];
+	$sso_enabled = isset( $vcap_app['sso_enabled'] ) ? $vcap_app['sso_enabled'] : false;
 
 	if ( isset($_SERVER['HTTPS']) ) {
 		if ( 'on' == strtolower($_SERVER['HTTPS']) )
