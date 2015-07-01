@@ -19,13 +19,20 @@ if (!defined('ABSPATH')) die('-1');
 
 $dir = dirname(__FILE__);
 
+// fix for weird runQ fs discrepancy
+if ( strpos( $dir, 'app/fs' ) !== FALSE ) {
+  $dir = '/app/app/wp-content/themes/salient/wpbakery/js_composer';
+}
+
 if (!defined('VC_THEME_DIR')) define('VC_THEME_DIR', get_theme_root());
 
 global $vc_as_theme;
 $vc_as_theme = preg_match('/'.preg_quote(str_replace('\\','/',VC_THEME_DIR), '/').'/', str_replace('\\','/',$dir));
+/*
 if( !$vc_as_theme && is_file(get_template_directory() . '/wpbakery/js_composer/js_composer.php') ) {
     // Load from theme
 } else {
+*/
     // {{{ constants
 
     /**
@@ -57,22 +64,22 @@ if( !$vc_as_theme && is_file(get_template_directory() . '/wpbakery/js_composer/j
      * @var array
      */
     global $composer_settings;
-    if(!isset($composer_settings)) {
+    //if(!isset($composer_settings)) {
 
         $composer_settings = Array(
-            'APP_ROOT'      => $dir . '/',
-            'WP_ROOT'       => dirname( dirname( dirname( dirname($dir ) ) ) ). '/',
-            'APP_DIR'       => basename( $dir ) . '/',
+            'APP_ROOT'      => $dir, // . '/',
+            'WP_ROOT'       => '/app/app/', //dirname( dirname( dirname( dirname($dir ) ) ) ). '/',
+            'APP_DIR'       => 'wpbakery/'. basename( $dir ) . '/',
             'CONFIG'        => $dir . '/config/',
             'ASSETS_DIR'    => 'assets/',
             'COMPOSER'      => $dir . '/composer/',
             'COMPOSER_LIB'  => $dir . '/composer/lib/',
             'SHORTCODES_LIB'=> $dir . '/composer/lib/shortcodes/',
-            'USER_DIR_NAME'      => 'vc_templates',
+            'USER_DIR_NAME'      => 'nectar/nectar-vc-addons/vc_templates',
             /* Default post type where to activate visual composer meta box settings */
             'default_post_types' => Array('page')
         );
-    }
+    //}
     /**
      * Setup locale.
      */
@@ -110,5 +117,5 @@ if( !$vc_as_theme && is_file(get_template_directory() . '/wpbakery/js_composer/j
     if(!$vc_as_theme) {
         $wpVC_setup->init($composer_settings);
     }
-}
+//}
 ?>

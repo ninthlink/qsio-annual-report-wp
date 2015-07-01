@@ -695,7 +695,6 @@ require_once('nectar/tgm-plugin-activation/required_plugins.php');
 #-----------------------------------------------------------------#
 # Nectar VC
 #-----------------------------------------------------------------#
-/*
 $nectar_disable_vc = (isset($options['disable-vc'])) ? $options['disable-vc'] : '0';
 
 if( $nectar_disable_vc != '1'){
@@ -719,8 +718,12 @@ if( $nectar_disable_vc != '1'){
 	      'default_post_types' => $nectar_vc_post_types
 	  );
 
-	  require_once locate_template('/wpbakery/js_composer/js_composer.php');
-	  $wpVC_setup->init($composer_settings);
+	  include( locate_template('/wpbakery/js_composer/js_composer.php') );
+	  
+    global $wpVC_setup;
+    if ( method_exists( $wpVC_setup, 'init' ) ) {
+      $wpVC_setup->init($composer_settings);
+    }
 	  
 	}
 
